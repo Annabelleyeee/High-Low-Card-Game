@@ -32,3 +32,47 @@ let player2 = (definedName2 || pickedRandomName2);
 let round = 1;
 let pointPlayer1 = 0;
 let pointPlayer2 = 0;
+
+play();
+function play() {
+
+//the varible random will produce a random card number between 1 and 13
+randomCard = Math.floor(Math.random() * 13 + 1);
+
+
+//main game = each player is presented with a random card number and has to guess if the following card number drawn will be higher or lower.
+do{
+  console.log('The card drawn has the number' + randomCard)
+  var guessPlayer1 = prompt( player1 + ', do you think the next card will have a higher or lower number?');
+
+    if (guessPlayer1 == higher && randomCard){
+			console.log('Incorrect');
+		} else if (guessPlayer1 < random) {
+			console.log('Your guess is too low');
+		} else {
+      // if they get is correct then a point is added
+			console.log('You got it correct');
+    pointPlayer1++
+		console.log('You have ' + pointPlayer1 + 'points');
+    break;
+    }
+round++
+
+  
+
+
+// each player gets 3 chances to guess the correct number
+} while (round <= 6){
+
+}
+
+// after the 3 chances, the user is asked if they want to play again or not.
+let again = prompt ('Do you want to play again?');
+
+if (again =='yes') {
+  play();
+} else{
+  console.log('Your final score is ' + point)
+	console.log('Game Over');
+}
+}
