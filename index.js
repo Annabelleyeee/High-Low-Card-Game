@@ -1,29 +1,34 @@
-console.log('Welcome to this Card Guessing Game!\n\nA card will be drawn from a deck and it is your job to guess if the next card drawn will have a higher or lower card number value on it.\nIf you guess correctly then you will recieve a point!\nAt the end of the game, the person with the most points wins.\n\n')
+console.log('Welcome to this Card Guessing Game!\n\nA card will be drawn from a deck and it is your job to guess if the next card drawn will have a higher or lower card number value on it.\nIf you guess correctly then you will recieve a point!\nAt the end of the game, the person with the most points wins.\n\n');
 
 //Asking for the user's names
-let definedName1 = prompt ('You are player 1, What is your name?')
-let definedName2 = prompt ('You are player 2, What is your name?')
+let definedName1 = prompt ('You are player 1, What is your name?\n');
+let definedName2 = prompt ('You are player 2, What is your name?\n');
 
 //preselecting a random name (in case the user does not enter a name)
 let randomName = ['Zoe', 'Anna', 'Xanthe', 'Abi', 'Ella'];
-let pickedRandomName1 = randomName [Math.floor(Math.random() * 4 + 0)];
-let pickedRandomName2 = randomName [Math.floor(Math.random() * 4 + 0)];
+
+let randomName1 = Math.floor(Math.random() * randomName.length + 0);
+let pickedRandomName1 = randomName[randomName1];
+
+let randomName2 = Math.floor(Math.random() * randomName.length + 0);
+let pickedRandomName2 = randomName[randomName2];
+
 
 //depending on if the user enters their name/s or not, a differnet welcome message will appear.
 if (definedName1 == '' && definedName2 == ''){
-  console.log ('You have each been assigned a random name!')
-  console.log ('Hi, ' + pickedRandomName1+ ' and ' + pickedRandomName2 + ', get ready to play\n\n')
+  console.log ('\n\nYou have each been assigned a random name!');
+  console.log ('Hi, ' + pickedRandomName1+ ' and ' + pickedRandomName2 + ', get ready to play\n\n');
 
 } else if (definedName1 != '' && definedName2 != ''){
-  console.log ('Hi, ' + definedName1+ ' and ' + definedName2 + ', get ready to play\n\n')
+  console.log ('Hi, ' + definedName1+ ' and ' + definedName2 + ', get ready to play\n\n');
 
 } else if (definedName1 == '' && definedName2 != ''){
-  console.log('Player 1, you have been assigned the random name ' + pickedRandomName1)
-  console.log ('Hi, ' + pickedRandomName1+ ' and ' + definedName2 + ', get ready to play\n\n')
+  console.log('Player 1, you have been assigned the random name ' + pickedRandomName1);
+  console.log ('Hi, ' + pickedRandomName1+ ' and ' + definedName2 + ', get ready to play\n\n');
 
   } else if (definedName1 != '' && definedName2 == ''){
-  console.log('Player 2, you have been assigned the random name ' + pickedRandomName2)
-  console.log ('Hi, ' + definedName1+ ' and ' + pickedRandomName2 + ', get ready to play\n\n')
+  console.log('Player 2, you have been assigned the random name ' + pickedRandomName2);
+  console.log ('Hi, ' + definedName1+ ' and ' + pickedRandomName2 + ', get ready to play\n\n');
   }
 
 
@@ -36,11 +41,11 @@ let round = 1;
 let pointPlayer1 = 0;
 let pointPlayer2 = 0;
 
-let definedRound = prompt('How many rounds would you like to play for?\n\n')
+let definedRound = prompt('How many rounds would you like to play for?\n');
 
 while ((isNaN(definedRound)) || (definedRound < 1) || (definedRound == null) || (definedRound == ' ') || (definedRound % 1 != 0)) {
-  console.log('Error: Not a valid number - Please enter a valid, whole number over 0')
-  definedRound = prompt('How many rounds would you like to play for?\n\n')
+  console.log('Error: Not a valid number - Please enter a valid, whole number over 0');
+  definedRound = prompt('How many rounds would you like to play for?\n');
 }
 
 
@@ -55,38 +60,38 @@ let nextRandomCard = Math.floor(Math.random() * 13 + 1);
 
 //main game = each player is presented with a random card number and has to guess if the following card number drawn will be higher or lower.
 
- console.log('The card drawn has a number value of ' + randomCard)
+ console.log('\nThe card drawn has a number value of ' + randomCard + '\n');
 
 do{
 randomCard = Math.floor(Math.random() * 13 + 1);
 nextRandomCard = Math.floor(Math.random() * 13 + 1);
 
-  var guessPlayer1 = prompt( player1 + ', do you think the next card will have a higher or lower number value?');
+  var guessPlayer1 = prompt( player1 + ', do you think the next card will have a higher or lower number value?\n');
 
       if (guessPlayer1=='' || guessPlayer1==null) {
           console.log('Error: no input');
-          guessPlayer1 = prompt( player1 + ', do you think the next card will have a higher or lower number?');
+          guessPlayer1 = prompt( player1 + ', do you think the next card will have a higher or lower number?\n');
   
       } else if (guessPlayer1 != 'higher' && guessPlayer1 != 'lower') {
         console.log('Error: Invalid response, please type \'higher\' or \'lower\'.');
-        guessPlayer1 = prompt( player1 + ', do you think the next card will have a higher or lower number value?\n\n');
+        guessPlayer1 = prompt( player1 + ', do you think the next card will have a higher or lower number value?\n');
 
 }
 
 
-  let guessPlayer2 = prompt( player2 + ', do you think the next card will have a higher or lower number value?');
+  let guessPlayer2 = prompt( player2 + ', do you think the next card will have a higher or lower number value?\n');
 
       if (guessPlayer1=='' || guessPlayer1==null) {
           console.log('Error: no input')
-          guessPlayer1 = prompt( player1 + ', do you think the next card will have a higher or lower number value?');
+          guessPlayer1 = prompt( player1 + ', do you think the next card will have a higher or lower number value?\n');
   
       } else if (guessPlayer1 != 'higher' && guessPlayer1 != 'lower') {
         console.log('Error: Invalid response, please type \'higher\' or \'lower\'.')
-      guessPlayer2 = prompt( player2 + ', do you think the next card will have a higher or lower number value?');
+      guessPlayer2 = prompt( player2 + ', do you think the next card will have a higher or lower number value?\n');
 
 }
 
-console.log('The next card drawn has a number value of ' + nextRandomCard)
+console.log('\nThe next card drawn has a number value of ' + nextRandomCard + ', that means:')
 
     if (guessPlayer1=='higher'&&randomCard<nextRandomCard 
     ||  guessPlayer1=='lower'&&randomCard>nextRandomCard) {
@@ -101,7 +106,7 @@ console.log('The next card drawn has a number value of ' + nextRandomCard)
     if (guessPlayer2=='higher'&&randomCard<nextRandomCard 
     ||  guessPlayer2=='lower'&&randomCard>nextRandomCard) {
 			console.log(player2 + ' you are correct!\n\n');
-      pointPlayer1++
+      pointPlayer2++
 
 		} else if (guessPlayer2=='higher'&&randomCard>nextRandomCard 
     ||  guessPlayer2=='lower'&&randomCard<nextRandomCard) {
@@ -117,7 +122,7 @@ round++
 
 
 // the players play for the amount o rounds they set to the variable "definedRound"
-} while (round < definedRound){
+} while (round <= definedRound){
 
 }
 
