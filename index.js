@@ -1,4 +1,4 @@
-console.log('Welcome to this Card Guessing Game!\n\nA card will be drawn from a deck and it is your job to guess if the next card drawn will have a higher or lower card number value on it.\n\nIf you guess correctly then you will recieve a point!\nAt the end of the game, the person with the most points wins.\n\n')
+console.log('Welcome to this Card Guessing Game!\n\nA card will be drawn from a deck and it is your job to guess if the next card drawn will have a higher or lower card number value on it.\nIf you guess correctly then you will recieve a point!\nAt the end of the game, the person with the most points wins.\n\n')
 
 //Asking for the user's names
 let definedName1 = prompt ('You are player 1, What is your name?')
@@ -36,6 +36,15 @@ let round = 1;
 let pointPlayer1 = 0;
 let pointPlayer2 = 0;
 
+let definedRound = prompt('How many rounds would you like to play for?\n\n')
+
+while ((isNaN(definedRound)) || (definedRound < 1) || (definedRound == null) || (definedRound == ' ') || (definedRound % 1 != 0)) {
+  console.log('Error: Not a valid number - Please enter a valid, whole number over 0')
+  definedRound = prompt('How many rounds would you like to play for?\n\n')
+}
+
+
+
 play();
 function play() {
 
@@ -46,13 +55,13 @@ let nextRandomCard = Math.floor(Math.random() * 13 + 1);
 
 //main game = each player is presented with a random card number and has to guess if the following card number drawn will be higher or lower.
 
- console.log('The card drawn has the number ' + randomCard)
+ console.log('The card drawn has a number value of ' + randomCard)
 
 do{
 randomCard = Math.floor(Math.random() * 13 + 1);
 nextRandomCard = Math.floor(Math.random() * 13 + 1);
 
-  var guessPlayer1 = prompt( player1 + ', do you think the next card will have a higher or lower number?');
+  var guessPlayer1 = prompt( player1 + ', do you think the next card will have a higher or lower number value?');
 
       if (guessPlayer1=='' || guessPlayer1==null) {
           console.log('Error: no input');
@@ -60,21 +69,24 @@ nextRandomCard = Math.floor(Math.random() * 13 + 1);
   
       } else if (guessPlayer1 != 'higher' && guessPlayer1 != 'lower') {
         console.log('Error: Invalid response, please type \'higher\' or \'lower\'.');
-        guessPlayer1 = prompt( player1 + ', do you think the next card will have a higher or lower number?\n\n');
+        guessPlayer1 = prompt( player1 + ', do you think the next card will have a higher or lower number value?\n\n');
 
 }
 
 
-  var guessPlayer2 = prompt( player2 + ', do you think the next card will have a higher or lower number?\n\n');
+  let guessPlayer2 = prompt( player2 + ', do you think the next card will have a higher or lower number value?');
 
       if (guessPlayer1=='' || guessPlayer1==null) {
           console.log('Error: no input')
-          guessPlayer1 = prompt( player1 + ', do you think the next card will have a higher or lower number?');
+          guessPlayer1 = prompt( player1 + ', do you think the next card will have a higher or lower number value?');
   
       } else if (guessPlayer1 != 'higher' && guessPlayer1 != 'lower') {
         console.log('Error: Invalid response, please type \'higher\' or \'lower\'.')
-      guessPlayer2 = prompt( player2 + ', do you think the next card will have a higher or lower number?');
+      guessPlayer2 = prompt( player2 + ', do you think the next card will have a higher or lower number value?');
+
 }
+
+console.log('The next card drawn has a number value of ' + nextRandomCard)
 
     if (guessPlayer1=='higher'&&randomCard<nextRandomCard 
     ||  guessPlayer1=='lower'&&randomCard>nextRandomCard) {
@@ -96,7 +108,7 @@ nextRandomCard = Math.floor(Math.random() * 13 + 1);
 			console.log(player2 + ' you are incorrect!\n\n');
 		} 
 
-    console.log('The next card drawn has a number value of ' + nextRandomCard)
+
     // break;
 
 round++
@@ -104,8 +116,8 @@ round++
   
 
 
-// each player gets 3 chances to guess the correct number
-} while (round <= 5){
+// the players play for the amount o rounds they set to the variable "definedRound"
+} while (round < definedRound){
 
 }
 
@@ -116,6 +128,8 @@ if (pointPlayer1 > pointPlayer2){
   console.log('Congradulations ' + player1 + ', you win the game!')
 } else if (pointPlayer1 < pointPlayer1){
   console.log('Congradulations ' + player2 + ', you win the game!')
+} else if (pointPlayer1 == pointPlayer2){
+  console.log('its a tie!')
 }
 // after the 3 chances, the user is asked if they want to play again or not.
 let again = prompt ('Do you want to play again?');
@@ -123,6 +137,6 @@ let again = prompt ('Do you want to play again?');
 if (again =='yes') {
   play();
 } else{
-	console.log('Game Over');
+	console.log('Game Over, Thanks for playing!');
 }
 }
