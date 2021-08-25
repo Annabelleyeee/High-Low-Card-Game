@@ -1,43 +1,50 @@
+//Introduction to rules of game
 console.log('Welcome to this Card Guessing Game!\n\nA card will be drawn from a deck and it is your job to guess if the next card drawn will have a higher or lower card number value on it.\nIf you guess correctly then you will recieve a point!\nAt the end of the game, the person with the most points wins.\n\n');
 
-//Asking for the user's names
-let definedName1 = prompt ('You are player 1, What is your name?\n');
-let definedName2 = prompt ('You are player 2, What is your name?\n');
 
-//preselecting a random name (in case the user does not enter a name)
-let randomName = ['Zoe', 'Anna', 'Xanthe', 'Abi', 'Ella'];
+//list of preselected names (in case the user does not enter a name)
+let randomName = ['Zoe', 'Anna', 'Xanthe', 'Abi', 'Ella', 'Buttons', 'Superman', 'FruitPunch', 'Macbeth', 'Johannes'];
 
+//setting the value of player 1's preselected name 
 let randomName1 = Math.floor(Math.random() * randomName.length + 0);
 let pickedRandomName1 = randomName[randomName1];
 
+//Asking for the user's name (player 1)
+let definedName1 = prompt ('You are player 1, What is your name?\n');
+
+//depending on if the user enters their name/s or not, a differnet welcome message will appear.
+if (definedName1 == ''){
+  console.log('Error: no input, you will be assigned a random name!')
+  console.log('Welcome to the game, ' + pickedRandomName1 + '\n')
+  randomName.splice(randomName1, 1);
+} else {
+ console.log('Welcome to the game, ' + definedName1);
+}
+
+
+//same conventions for the second player
 let randomName2 = Math.floor(Math.random() * randomName.length + 0);
 let pickedRandomName2 = randomName[randomName2];
 
+let definedName2 = prompt ('You are player 2, What is your name?\n');
 
-//depending on if the user enters their name/s or not, a differnet welcome message will appear.
-if (definedName1 == '' && definedName2 == ''){
-  console.log ('\n\nYou have each been assigned a random name!');
-  console.log ('Hi, ' + pickedRandomName1+ ' and ' + pickedRandomName2 + ', get ready to play\n\n');
-
-} else if (definedName1 != '' && definedName2 != ''){
-  console.log ('Hi, ' + definedName1+ ' and ' + definedName2 + ', get ready to play\n\n');
-
-} else if (definedName1 == '' && definedName2 != ''){
-  console.log('Player 1, you have been assigned the random name ' + pickedRandomName1);
-  console.log ('Hi, ' + pickedRandomName1+ ' and ' + definedName2 + ', get ready to play\n\n');
-
-  } else if (definedName1 != '' && definedName2 == ''){
-  console.log('Player 2, you have been assigned the random name ' + pickedRandomName2);
-  console.log ('Hi, ' + definedName1+ ' and ' + pickedRandomName2 + ', get ready to play\n\n');
-  }
+if (definedName2 == ''){
+  console.log('Error: no input, you will be assigned a random name!')
+  console.log('Welcome to the game, ' + pickedRandomName2 + '\n')
+  randomName.splice(randomName2, 1);
+} else {
+ console.log('Welcome to the game ' + definedName2);
+}
 
 
-//the value of players will either be their selected name or a random name
+//the value of players will either be their inputed name or a random name
 let player1 = (definedName1 || pickedRandomName1);
 let player2 = (definedName2 || pickedRandomName2);
 
+console.log('Okay ' + player1 + ' and ' + player2 + ', get ready to play!')
 
-//setting a list of possible cards to be selected
+
+//setting a list of possible cards from a deck to be selected
 let cards = ['an Ace (1)', 'a two', 'a three', 'a four','a five', 'a six', 'a seven', 'an eight', 'a nine', 'a ten', 'a Jack (11)', 'a Queen (12)', 'a King (13)']
 
 
@@ -46,8 +53,11 @@ let round = 1;
 let pointPlayer1 = 0;
 let pointPlayer2 = 0;
 
+//the player can choose the number of rounds they would like to play for
 let definedRound = prompt('How many rounds would you like to play for?\n');
 
+
+//setting boundries and rules for valid and invalid inputs.
 while ((isNaN(definedRound)) || (definedRound < 1) || (definedRound == null) || (definedRound == ' ') || (definedRound % 1 != 0)) {
   console.log('Error: Not a valid number - Please enter a valid, whole number over 0');
   definedRound = prompt('How many rounds would you like to play for?\n');
@@ -58,27 +68,37 @@ while ((isNaN(definedRound)) || (definedRound < 1) || (definedRound == null) || 
 play();
 function play() {
 
-//the varible randomCard will produce a random card number between 1 and 13. "nextRandomCard" will assign another number between 1 - 13 for the next card drawn.
-// let randomCard = Math.floor(Math.random() * 13 + 1);
-// let nextRandomCard = Math.floor(Math.random() * 13 + 1);
+
+//math.floor gives each item in the "cards" list, a numerical value. The "Math.random" will select a random number from that list of numbers and  "randomCard1" will hold that selected number as its value.
+let randomCard1 = Math.floor(Math.random() * cards.length + 0);
+
+// "firstRandomCard" will have the value of whatever card from the "cards" list that corresponds to the random number set by "randomCard1" - for example, if the random number generated is 1 then the first random card will be ace.
+let firstRandomCard = cards[randomCard1];
+
+//same conventions apply to the second card
+let randomCard2 = Math.floor(Math.random() * cards.length + 0);
+let nextRandomCard = cards[randomCard2];
+
 
 //main game = each player is presented with a random card number and has to guess if the following card number drawn will be higher or lower.
 console.log('\nThe card drawn has a number value of ' + firstRandomCard + '\n');
 
 do{
-// randomCard = Math.floor(Math.random() * 13 + 1);
-// nextRandomCard = Math.floor(Math.random() * 13 + 1);
-let randomCard1 = Math.floor(Math.random() * cards.length + 0);
-let firstRandomCard = cards[randomCard1];
+
+randomCard1 = Math.floor(Math.random() * cards.length + 0);
+
+firstRandomCard = cards[randomCard1];
 
 
-let randomCard2 = Math.floor(Math.random() * cards.length + 0);
-let nextRandomCard = cards[randomCard2];
+randomCard2 = Math.floor(Math.random() * cards.length + 0);
+
+nextRandomCard = cards[randomCard2];
 
 
-
+//asking player 1 if they think the next card will be higher or lower
   var guessPlayer1 = prompt( player1 + ', do you think the next card will have a higher or lower number value?\n');
 
+//setting boundaries and rules to test if valid or invalid response
       if (guessPlayer1=='' || guessPlayer1==null) {
           console.log('Error: no input');
           guessPlayer1 = prompt( player1 + ', do you think the next card will have a higher or lower number?\n');
@@ -89,7 +109,7 @@ let nextRandomCard = cards[randomCard2];
 
 }
 
-
+//same for player 2
   let guessPlayer2 = prompt( player2 + ', do you think the next card will have a higher or lower number value?\n');
 
       if (guessPlayer1=='' || guessPlayer1==null) {
@@ -102,8 +122,10 @@ let nextRandomCard = cards[randomCard2];
 
 }
 
+//The program will say the value of the next card drawn
 console.log('\nThe next card drawn has ' + nextRandomCard + ' on it, that means:')
 
+// determining who gets the points based on their response from earlier
     if (guessPlayer1=='higher'&&firstRandomCard<nextRandomCard 
     ||  guessPlayer1=='lower'&&firstRandomCard>nextRandomCard) {
 			console.log(player1 + ' you are correct!');
@@ -125,21 +147,21 @@ console.log('\nThe next card drawn has ' + nextRandomCard + ' on it, that means:
 		} 
 
 
-    // break;
-
 round++
 
   
 
 
-// the players play for the amount o rounds they set to the variable "definedRound"
+// the players play for the amount of rounds they set to the variable "definedRound"
 } while (round <= definedRound){
 
 }
-
+//the points of each player are displayed
 console.log(player1 + ', you have ' + pointPlayer1 + ' points.');
 console.log(player2 + ', you have ' + pointPlayer2 + ' points.')
 
+
+//Whoever has the most points wins
 if (pointPlayer1 > pointPlayer2){
   console.log('Congradulations ' + player1 + ', you win the game!')
 } else if (pointPlayer1 < pointPlayer1){
@@ -147,7 +169,9 @@ if (pointPlayer1 > pointPlayer2){
 } else if (pointPlayer1 == pointPlayer2){
   console.log('its a tie!')
 }
-// after the 3 chances, the user is asked if they want to play again or not.
+
+
+// The user is asked if they want to play again or not.
 let again = prompt ('Do you want to play again?');
 
 if (again =='yes') {
