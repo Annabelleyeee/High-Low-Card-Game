@@ -1,6 +1,18 @@
 //Introduction to rules of game
-console.log('Welcome to this Card Guessing Game!\n\nA card will be drawn from a deck and it is your job to guess if the next card drawn will have a higher or lower card number value on it.\nIf you guess correctly then you will recieve a point!\nAt the end of the game, the person with the most points wins.\n\n');
+console.log('Welcome to this Card Guessing Game!');
 
+//adding space for usability
+console.log(' ');
+
+console.log('A card will be drawn from a deck and it is your job to guess if the next card drawn will have a higher or lower card number value on it.');
+
+//adding space for usability
+console.log(' ');
+
+console.log('If you guess correctly then you will recieve a point! At the end of the game, the person with the most points wins.');
+
+//adding space for usability
+console.log(' ');
 
 //list of preselected names (in case the user does not enter a name)
 let randomName = ['Zoe', 'Anna', 'Xanthe', 'Abi', 'Ella', 'Buttons', 'Superman', 'FruitPunch', 'Macbeth', 'Johannes'];
@@ -10,26 +22,34 @@ let randomName1 = Math.floor(Math.random() * randomName.length + 0);
 let pickedRandomName1 = randomName[randomName1];
 
 //Asking for the user's name (player 1)
-let definedName1 = prompt ('You are player 1, What is your name?\n');
+let definedName1 = prompt ('You are player 1, What is your name?');
+
+//adding space for usability
+console.log(' ');
 
 //depending on if the user enters their name/s or not, a differnet welcome message will appear.
 if (definedName1 == ''){
-  console.log('Error: no input, you will be assigned a random name!')
-  console.log('Welcome to the game, ' + pickedRandomName1 + '\n')
+  console.log('Error: Empty input, you will be assigned a random name!')
+  console.log('Welcome to the game, ' + pickedRandomName1)
   randomName.splice(randomName1, 1);
 } else {
  console.log('Welcome to the game, ' + definedName1);
 }
 
+//adding space for usability
+console.log(' ');
 
 //same conventions for the second player
 let randomName2 = Math.floor(Math.random() * randomName.length + 0);
 let pickedRandomName2 = randomName[randomName2];
 
-let definedName2 = prompt ('You are player 2, What is your name?\n');
+let definedName2 = prompt ('You are player 2, What is your name?');
+
+//adding space for usability
+console.log(' ');
 
 if (definedName2 == ''){
-  console.log('Error: no input, you will be assigned a random name!')
+  console.log('Error: Empty input, you will be assigned a random name!')
   console.log('Welcome to the game, ' + pickedRandomName2 + '\n')
   randomName.splice(randomName2, 1);
 } else {
@@ -54,14 +74,45 @@ let pointPlayer1 = 0;
 let pointPlayer2 = 0;
 
 //the player can choose the number of rounds they would like to play for
-let definedRound = prompt('How many rounds would you like to play for?\n');
+let definedRound = prompt('How many rounds would you like to play for?');
 
+//adding space for usability
+console.log(' ');
 
-//setting boundries and rules for valid and invalid inputs.
+// while (definedRound == null || definedRound == ' ') { 
+
+//  console.log ('Error: Empty input - Please enter a whole numeral between 1 and 52');
+
+//       definedRound = prompt('How many rounds would you like to play for?\n');
+// } 
+
+// while ((isNaN(definedRound))){
+//       console.log ('Error: Not a number - Please enter a whole numeral between 1 and 52');
+
+//       definedRound = prompt('How many rounds would you like to play for?\n');
+// }
+
+// while (definedRound < 1 || definedRound > 52) {
+//       console.log ('Error: A standard deck of cards has 52 cards - Please enter a whole numeral between 1 and 52');
+
+//       definedRound = prompt('How many rounds would you like to play for?\n');
+// } 
+
+// while (definedRound % 1 != 0) {
+//      console.log ('Error: Not a whole number - Please enter a whole numeral between 1 and 52');
+
+//      definedRound = prompt('How many rounds would you like to play for?\n');
+// }
+    
+
+// setting boundries and rules for valid and invalid inputs.
 while ((isNaN(definedRound)) || (definedRound < 1) || (definedRound == null) || (definedRound == ' ') || (definedRound % 1 != 0)) {
-  console.log('Error: Not a valid number - Please enter a valid, whole number over 0');
-  definedRound = prompt('How many rounds would you like to play for?\n');
+  console.log('Error: Not a valid number - Please enter a valid, whole numeral between 0 and 52 (there are only 52 cards in a Standard Deck');
+  definedRound = prompt('How many rounds would you like to play for?');
 }
+
+//adding space for usability
+console.log(' ');
 
 
 
@@ -81,7 +132,7 @@ let nextRandomCard = cards[randomCard2];
 
 
 //main game = each player is presented with a random card number and has to guess if the following card number drawn will be higher or lower.
-console.log('\nThe card drawn has a number value of ' + firstRandomCard + '\n');
+console.log('The card drawn has ' + firstRandomCard + ' on it');
 
 do{
 
@@ -100,7 +151,7 @@ nextRandomCard = cards[randomCard2];
 
 //setting boundaries and rules to test if valid or invalid response
       if (guessPlayer1=='' || guessPlayer1==null) {
-          console.log('Error: no input');
+          console.log('Error: Empty input');
           guessPlayer1 = prompt( player1 + ', do you think the next card will have a higher or lower number?\n');
   
       } else if (guessPlayer1 != 'higher' && guessPlayer1 != 'lower') {
@@ -113,7 +164,7 @@ nextRandomCard = cards[randomCard2];
   let guessPlayer2 = prompt( player2 + ', do you think the next card will have a higher or lower number value?\n');
 
       if (guessPlayer1=='' || guessPlayer1==null) {
-          console.log('Error: no input')
+          console.log('Error: Empty input')
           guessPlayer1 = prompt( player1 + ', do you think the next card will have a higher or lower number value?\n');
   
       } else if (guessPlayer1 != 'higher' && guessPlayer1 != 'lower') {
