@@ -200,7 +200,7 @@ if (pointPlayer1 > pointPlayer2){
 // The user is asked if they want to play again or not.
 let again = prompt ('Do you want to play again?');
 
-if (again =='yes') {
+if (again =='yes' || again =='Yes') {
   play();
 } else{
 	console.log('Game Over, Thanks for playing!');
