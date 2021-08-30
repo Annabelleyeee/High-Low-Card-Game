@@ -2,7 +2,7 @@
 console.log('Welcome to this Card Guessing Game!');
 
 //adding space for usability
-console.log(' ');
+console.log('--');
 
 console.log('A card will be drawn from a deck and it is your job to guess if the next card drawn will have a higher or lower card number value on it.');
 
@@ -65,7 +65,7 @@ console.log('Okay ' + player1 + ' and ' + player2 + ', get ready to play!')
 
 
 //setting a list of possible cards from a deck to be selected
-let cards = ['an Ace (1)', 'a two', 'a three', 'a four','a five', 'a six', 'a seven', 'an eight', 'a nine', 'a ten', 'a Jack (11)', 'a Queen (12)', 'a King (13)']
+let cards = ['an Ace (1)', 'a 2', 'a 3', 'a 4','a 5', 'a 6', 'a 7', 'an 8', 'a 9', 'a 10', 'a Jack (11)', 'a Queen (12)', 'a King (13)']
 
 
 //setting the round and points to 0
