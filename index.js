@@ -78,31 +78,6 @@ let definedRound = prompt('How many rounds would you like to play for?');
 
 //adding space for usability
 console.log(' ');
-
-// while (definedRound == null || definedRound == ' ') { 
-
-//  console.log ('Error: Empty input - Please enter a whole numeral between 1 and 52');
-
-//       definedRound = prompt('How many rounds would you like to play for?\n');
-// } 
-
-// while ((isNaN(definedRound))){
-//       console.log ('Error: Not a number - Please enter a whole numeral between 1 and 52');
-
-//       definedRound = prompt('How many rounds would you like to play for?\n');
-// }
-
-// while (definedRound < 1 || definedRound > 52) {
-//       console.log ('Error: A standard deck of cards has 52 cards - Please enter a whole numeral between 1 and 52');
-
-//       definedRound = prompt('How many rounds would you like to play for?\n');
-// } 
-
-// while (definedRound % 1 != 0) {
-//      console.log ('Error: Not a whole number - Please enter a whole numeral between 1 and 52');
-
-//      definedRound = prompt('How many rounds would you like to play for?\n');
-// }
     
 
 // setting boundries and rules for valid and invalid inputs.
