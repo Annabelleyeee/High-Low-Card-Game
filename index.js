@@ -198,6 +198,7 @@ while ((isNaN(definedRound)) || (definedRound < 1) || (definedRound == null) || 
 		console.log('its a tie!');
 	}
 
+    console.log(' ')
 
 	// The user is asked if they want to play again or not.
 	let again = prompt('Do you want to play again?');
@@ -215,6 +216,7 @@ while ((isNaN(definedRound)) || (definedRound < 1) || (definedRound == null) || 
 
 		play();
 	} else if (again == 'no' || again == 'No'){
+    console.log(' ')
 		console.log('Game Over, Thanks for playing!');
 	}
 }
