@@ -73,6 +73,12 @@ let round = 1;
 let pointPlayer1 = 0;
 let pointPlayer2 = 0;
 
+
+
+play();
+
+function play() {
+
 //the player can choose the number of rounds they would like to play for
 let definedRound = prompt('How many rounds would you like to play for?');
 
@@ -85,16 +91,6 @@ while ((isNaN(definedRound)) || (definedRound < 1) || (definedRound == null) || 
 	console.log('Error: Not a valid number - Please enter a valid, whole numeral between 0 and 52 (there are only 52 cards in a Standard Deck');
 	definedRound = prompt('How many rounds would you like to play for?');
 }
-
-//adding space for usability
-console.log(' ');
-
-
-
-play();
-
-function play() {
-
 
 	//math.floor gives each item in the "cards" list, a numerical value. The "Math.random" will select a random number from that list of numbers and  "randomCard1" will hold that selected number as its value.
 	let randomCard1 = Math.floor(Math.random() * cards.length + 0);
@@ -120,22 +116,6 @@ function play() {
 		randomCard2 = Math.floor(Math.random() * cards.length + 0);
 
 		nextRandomCard = cards[randomCard2];
-
-    //the player can choose the number of rounds they would like to play for
-let definedRound = prompt('How many rounds would you like to play for?');
-
-//adding space for usability
-console.log(' ');
-
-
-// setting boundries and rules for valid and invalid inputs.
-while ((isNaN(definedRound)) || (definedRound < 1) || (definedRound == null) || (definedRound == ' ') || (definedRound % 1 != 0)) {
-	console.log('Error: Not a valid number - Please enter a valid, whole numeral between 0 and 52 (there are only 52 cards in a Standard Deck');
-	definedRound = prompt('How many rounds would you like to play for?');
-}
-
-//adding space for usability
-console.log(' ');
 
 
 		//asking player 1 if they think the next card will be higher or lower
