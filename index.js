@@ -121,9 +121,27 @@ function play() {
 
 		nextRandomCard = cards[randomCard2];
 
+    //the player can choose the number of rounds they would like to play for
+let definedRound = prompt('How many rounds would you like to play for?');
+
+//adding space for usability
+console.log(' ');
+
+
+// setting boundries and rules for valid and invalid inputs.
+while ((isNaN(definedRound)) || (definedRound < 1) || (definedRound == null) || (definedRound == ' ') || (definedRound % 1 != 0)) {
+	console.log('Error: Not a valid number - Please enter a valid, whole numeral between 0 and 52 (there are only 52 cards in a Standard Deck');
+	definedRound = prompt('How many rounds would you like to play for?');
+}
+
+//adding space for usability
+console.log(' ');
+
 
 		//asking player 1 if they think the next card will be higher or lower
-		var guessPlayer1 = prompt(player1 + ', do you think the next card will have a higher or lower number value?\n');
+		var guessPlayer1 = prompt(player1 + ', do you think the next card will have a higher or lower number value?');
+
+    console.log(' ');
 
 		//setting boundaries and rules to test if valid or invalid response - an error message will appear if the answer isnt valid and the prompt will repeat.
 
@@ -204,11 +222,11 @@ function play() {
 	// The user is asked if they want to play again or not.
 	let again = prompt('Do you want to play again?');
 
-  while (again != 'yes' && again != 'Yes' && again == 'no' && again == 'No' ) {
+  while (again != 'yes' && again != 'Yes' && again != 'no' && again != 'No' ) {
+    console.log(' ');
     console.log('Error: Invalid response, please type \'yes\' or \'no\'.');
-
+    console.log(' ');
     again = prompt('Do you want to play again?');
-
  }
 	if (again == 'yes' || again == 'Yes') {
 		console.log(' ');
