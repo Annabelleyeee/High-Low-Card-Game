@@ -125,31 +125,48 @@ nextRandomCard = cards[randomCard2];
   var guessPlayer1 = prompt( player1 + ', do you think the next card will have a higher or lower number value?\n');
 
 //setting boundaries and rules to test if valid or invalid response
-      if (guessPlayer1=='' || guessPlayer1==null) {
-          console.log('Error: Empty input');
-          guessPlayer1 = prompt( player1 + ', do you think the next card will have a higher or lower number?\n');
-  
-      } else if (guessPlayer1 != 'higher' && guessPlayer1 != 'lower') {
-        console.log('Error: Invalid response, please type \'higher\' or \'lower\'.');
-        guessPlayer1 = prompt( player1 + ', do you think the next card will have a higher or lower number value?\n');
 
+while (guessPlayer1 != 'higher' && guessPlayer1 != 'lower' && guessPlayer1 != 'Higher' && guessPlayer1 != 'Lower') {
+  console.log('Error: Invalid response, please type \'higher\' or \'lower\'.');
+        guessPlayer1 = prompt( player1 + ', do you think the next card will have a higher or lower number value?\n');
 }
+      // if (guessPlayer1=='' || guessPlayer1==null) {
+      //     console.log('Error: Empty input');
+      //     guessPlayer1 = prompt( player1 + ', do you think the next card will have a higher or lower number?\n');
+  
+//       } else if (guessPlayer1 != 'higher' && guessPlayer1 != 'lower') {
+//         console.log('Error: Invalid response, please type \'higher\' or \'lower\'.');
+//         guessPlayer1 = prompt( player1 + ', do you think the next card will have a higher or lower number value?\n');
+
+// }
 
 //same for player 2
   let guessPlayer2 = prompt( player2 + ', do you think the next card will have a higher or lower number value?\n');
 
-      if (guessPlayer1=='' || guessPlayer1==null) {
-          console.log('Error: Empty input')
-          guessPlayer1 = prompt( player1 + ', do you think the next card will have a higher or lower number value?\n');
-  
-      } else if (guessPlayer1 != 'higher' && guessPlayer1 != 'lower') {
-        console.log('Error: Invalid response, please type \'higher\' or \'lower\'.')
-      guessPlayer2 = prompt( player2 + ', do you think the next card will have a higher or lower number value?\n');
-
+  while (guessPlayer2 != 'higher' && guessPlayer2 != 'lower' && guessPlayer2 != 'Higher' && guessPlayer2 != 'Lower') {
+  console.log('Error: Invalid response, please type \'higher\' or \'lower\'.');
+        guessPlayer2 = prompt( player2 + ', do you think the next card will have a higher or lower number value?\n');
 }
+
+//       if (guessPlayer1=='' || guessPlayer1==null) {
+//           console.log('Error: Empty input')
+//           guessPlayer1 = prompt( player1 + ', do you think the next card will have a higher or lower number value?\n');
+  
+//       } else if (guessPlayer1 != 'higher' && guessPlayer1 != 'lower') {
+//         console.log('Error: Invalid response, please type \'higher\' or \'lower\'.')
+//       guessPlayer2 = prompt( player2 + ', do you think the next card will have a higher or lower number value?\n');
+
+// }
 
 //The program will say the value of the next card drawn
 console.log('\nThe next card drawn has ' + nextRandomCard + ' on it, that means:')
+
+if (firstRandomCard<nextRandomCard) {
+  console.log('it has a HIGHER number value')
+} else if (firstRandomCard>nextRandomCard) {
+  console.log('it has a LOWER number value')
+} 
+ 
 
 // determining who gets the points based on their response from earlier
     if (guessPlayer1=='higher'&&firstRandomCard<nextRandomCard 
@@ -172,7 +189,7 @@ console.log('\nThe next card drawn has ' + nextRandomCard + ' on it, that means:
 			console.log(player2 + ' you are incorrect!\n\n');
 		} 
 
-
+//One round is complete
 round++
 
   
@@ -201,6 +218,8 @@ if (pointPlayer1 > pointPlayer2){
 let again = prompt ('Do you want to play again?');
 
 if (again =='yes' || again =='Yes') {
+  console.log(' ')
+  console.log('Ok, let\'s reset!')
   play();
 } else{
 	console.log('Game Over, Thanks for playing!');
