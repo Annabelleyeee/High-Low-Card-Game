@@ -204,13 +204,19 @@ function play() {
 	// The user is asked if they want to play again or not.
 	let again = prompt('Do you want to play again?');
 
+  while (again != 'yes' && again != 'Yes' && again == 'no' && again == 'No' ) {
+    console.log('Error: Invalid response, please type \'yes\' or \'no\'.');
+
+    again = prompt('Do you want to play again?');
+
+ }
 	if (again == 'yes' || again == 'Yes') {
 		console.log(' ');
 		console.log('Ok, let\'s reset!');
 		console.log(' ');
 
 		play();
-	} else {
+	} else if (again == 'no' || again == 'No'){
 		console.log('Game Over, Thanks for playing!');
 	}
 }
