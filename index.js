@@ -122,11 +122,14 @@ let pointPlayer2 = 0;
 
         randomNumber1 = Math.floor(Math.random() * cards.length + 0);
 
+        cards.splice(randomName1, 1);
         firstRandomCard = cards[randomNumber1];
+      
 
 
         randomNumber2 = Math.floor(Math.random() * cards.length + 0);
 
+        cards.splice(randomNumber2, 1);
         nextRandomCard = cards[randomNumber2];
 
 
