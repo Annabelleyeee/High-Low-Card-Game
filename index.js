@@ -50,12 +50,14 @@ console.log(' ');
 
 if (definedName2 == '') {
 	console.log('Error: Empty input, you will be assigned a random name!');
-	console.log('Welcome to the game, ' + pickedRandomName2 + '\n');
+	console.log('Welcome to the game, ' + pickedRandomName2);
 	randomName.splice(randomName2, 1);
 } else {
 	console.log('Welcome to the game ' + definedName2);
 }
 
+ //adding space for usability
+ console.log(' ')
 
 //the value of players will either be their inputed name or a random name
 let player1 = (definedName1 || pickedRandomName1);
@@ -89,10 +91,13 @@ console.log(' ');
 // setting boundries and rules for valid and invalid inputs.
 while ((isNaN(definedRound)) || (definedRound < 1) || (definedRound == null) || (definedRound == ' ') || (definedRound % 1 != 0)) {
   console.log(' ')
-	console.log('Error: Not a valid number - Please enter a valid, whole numeral between 0 and 52 (there are only 52 cards in a Standard Deck');
+	console.log('Error: Not a valid number - Please enter a valid, whole numeral between 1 and 52 (there are only 52 cards in a Standard Deck');
   console.log(' ')
 	definedRound = prompt('How many rounds would you like to play for?');
 }
+
+//adding space for usability
+console.log(' ')
 
 	//math.floor gives each item in the "cards" list, a numerical value. The "Math.random" will select a random number from that list of numbers and  "randomCard1" will hold that selected number as its value.
 	let randomCard1 = Math.floor(Math.random() * cards.length + 0);
@@ -107,6 +112,7 @@ while ((isNaN(definedRound)) || (definedRound < 1) || (definedRound == null) || 
 
 	//main game = each player is presented with a random card number and has to guess if the following card number drawn will be higher or lower.
 	console.log('The card drawn has ' + firstRandomCard + ' on it');
+  //adding space for usability
   console.log(' ')
 
 	do {
@@ -124,15 +130,21 @@ while ((isNaN(definedRound)) || (definedRound < 1) || (definedRound == null) || 
 		//asking player 1 if they think the next card will be higher or lower
 		var guessPlayer1 = prompt(player1 + ', do you think the next card will have a higher or lower number value?');
 
+    //adding space for usability
     console.log(' ');
 
 		//setting boundaries and rules to test if valid or invalid response - an error message will appear if the answer isnt valid and the prompt will repeat.
 
 		while (guessPlayer1 != 'higher' && guessPlayer1 != 'lower' && guessPlayer1 != 'Higher' && guessPlayer1 != 'Lower' && guessPlayer1 != 'HIGHER' && guessPlayer1 != 'LOWER') {
+      //adding space for usability
+		  console.log(' ');
 			console.log('Error: Invalid response, please type \'higher\' or \'lower\'.');
+     
 			guessPlayer1 = prompt(player1 + ', do you think the next card will have a higher or lower number value?');
+      //adding space for usability
+		  console.log(' ');
 		}
-
+    //adding space for usability
 		console.log(' ');
 
 
@@ -145,6 +157,7 @@ while ((isNaN(definedRound)) || (definedRound < 1) || (definedRound == null) || 
 
 			guessPlayer2 = prompt(player2 + ', do you think the next card will have a higher or lower number value?');
 		}
+    //adding space for usability
 		console.log(' ');
 
 
