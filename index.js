@@ -15,7 +15,7 @@ console.log('If you guess correctly then you will recieve a point! At the end of
 console.log(' ');
 
 //list of preselected names (in case the user does not enter a name)
-let randomName = ['Zoe', 'Anna', 'Xanthe', 'Abi', 'Ella', 'Buttons', 'Superman', 'FruitPunch', 'Macbeth', 'Johannes'];
+let randomName = ['Zoe', 'Anna', 'Xanthe', 'Abi', 'Ella', 'Buttons', 'Superman', 'FruitPunch', 'Macbeth', 'Johannes', 'R2D2', 'Kath', 'Kim', 'Pamela'];
 
 //setting the value of player 1's preselected name 
 let randomName1 = Math.floor(Math.random() * randomName.length + 0);
@@ -107,6 +107,7 @@ while ((isNaN(definedRound)) || (definedRound < 1) || (definedRound == null) || 
 
 	//main game = each player is presented with a random card number and has to guess if the following card number drawn will be higher or lower.
 	console.log('The card drawn has ' + firstRandomCard + ' on it');
+  console.log(' ')
 
 	do {
 
@@ -127,7 +128,7 @@ while ((isNaN(definedRound)) || (definedRound < 1) || (definedRound == null) || 
 
 		//setting boundaries and rules to test if valid or invalid response - an error message will appear if the answer isnt valid and the prompt will repeat.
 
-		while (guessPlayer1 != 'higher' && guessPlayer1 != 'lower' && guessPlayer1 != 'Higher' && guessPlayer1 != 'Lower') {
+		while (guessPlayer1 != 'higher' && guessPlayer1 != 'lower' && guessPlayer1 != 'Higher' && guessPlayer1 != 'Lower' && guessPlayer1 != 'HIGHER' && guessPlayer1 != 'LOWER') {
 			console.log('Error: Invalid response, please type \'higher\' or \'lower\'.');
 			guessPlayer1 = prompt(player1 + ', do you think the next card will have a higher or lower number value?');
 		}
@@ -138,7 +139,7 @@ while ((isNaN(definedRound)) || (definedRound < 1) || (definedRound == null) || 
 		//same for player 2
 		let guessPlayer2 = prompt(player2 + ', do you think the next card will have a higher or lower number value?');
 
-		while (guessPlayer2 != 'higher' && guessPlayer2 != 'lower' && guessPlayer2 != 'Higher' && guessPlayer2 != 'Lower') {
+		while (guessPlayer2 != 'higher' && guessPlayer2 != 'lower' && guessPlayer2 != 'Higher' && guessPlayer2 != 'Lower' && guessPlayer2 != 'HIGHER' && guessPlayer2 != 'LOWER') {
 			console.log(' ');
 			console.log('Error: Invalid response, please type \'higher\' or \'lower\'.');
 
@@ -157,7 +158,7 @@ while ((isNaN(definedRound)) || (definedRound < 1) || (definedRound == null) || 
 		}
 
 
-		// determining who gets the points based on their response from earlier
+		// determining who gets the points based on their response from earlier - if they were correct then they get a point, if they don't then they won't
 		if (guessPlayer1 == 'higher' && firstRandomCard < nextRandomCard || guessPlayer1 == 'lower' && firstRandomCard > nextRandomCard) {
 			console.log(player1 + ' you are correct!');
 			pointPlayer1++;
