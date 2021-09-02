@@ -89,7 +89,7 @@ console.log(' ');
 
 
 // setting boundries and rules for valid and invalid inputs.
-while ((isNaN(definedRound)) || (definedRound < 1) || (definedRound == null) || (definedRound == ' ') || (definedRound % 1 != 0)) {
+while ((isNaN(definedRound)) || (definedRound < 1) || (definedRound == null) || (definedRound == ' ') || (definedRound % 1 != 0) || (definedRound > 52)) {
   console.log(' ')
 	console.log('Error: Not a valid number - Please enter a valid, whole numeral between 1 and 52 (there are only 52 cards in a Standard Deck');
   console.log(' ')
