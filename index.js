@@ -1,17 +1,17 @@
 //Introduction to rules of game
 console.log('Welcome to this Card Guessing Game!');
 
-//adding space for usability
+//adding white space for usability
 console.log('--');
 
 console.log('A card will be drawn from a deck and it is your job to guess if the next card drawn will have a higher or lower card number value on it.');
 
-//adding space for usability
+//adding white space for usability
 console.log(' ');
 
 console.log('If you guess correctly then you will recieve a point! At the end of the game, the person with the most points wins.');
 
-//adding space for usability
+//adding white space for usability
 console.log(' ');
 console.log(' ');
 console.log(' ');
@@ -36,7 +36,7 @@ if (definedName1 == '') {
     console.log('Welcome to the game, ' + definedName1);
 }
 
-//adding space for usability
+//adding white space for usability
 console.log(' ');
 
 //same conventions for the second player
@@ -53,7 +53,7 @@ if (definedName2 == '') {
 } else {
     console.log('Welcome to the game ' + definedName2);
 }
-//adding space for usability
+//adding white space for usability
 console.log(' ');
 
 //the value of players will either be their inputed name or a random name
@@ -91,35 +91,41 @@ let pointPlayer2 = 0;
     //setting a list of possible cards from a deck to be selected
     let cards = ['an Ace (1)', 'a 2', 'a 3', 'a 4', 'a 5', 'a 6', 'a 7', 'an 8', 'a 9', 'a 10', 'a Jack (11)', 'a Queen (12)', 'a King (13)'];
 
-
-    do {
-
-        //math.floor gives each item in the "cards" list, a numerical value. The "Math.random" will select a random number from that list of numbers and  "randomCard1" will hold that selected number as its value.
-        var randomNumber1 = Math.floor(Math.random() * cards.length + 0);
+        //math.floor gives each item in the "cards" list, a numerical value. The "Math.random" will select a random number from that list of numbers and  "randomNumber1" will hold that selected number as its value.
+        let randomNumber1 = Math.floor(Math.random() * cards.length + 0);
 
         // "firstRandomCard" will have the value of whatever card from the "cards" list that corresponds to the random number set by "randomNumber1" - for example, if the random number generated is 0 then the first random card will be ace.
-        var firstRandomCard = cards[randomNumber1];
+        let firstRandomCard = cards[randomNumber1];
       
-        //same conventions apply to the second card
-        var randomNumber2 = Math.floor(Math.random() * cards.length + 0);
-        var nextRandomCard = cards[randomNumber2];
 
-        //checks to see if the second card is the same as the first
-        while (randomNumber2 == randomNumber1) {
-          // if it's the same it will pick a new card
-          var randomNumber2 = Math.floor(Math.random() * cards.length + 0);
-          var nextRandomCard = cards[randomNumber2];
-        }
-
-        //main game = each player is presented with a random card number and has to guess if the following card number drawn will be higher or lower.
+          //main game = each player is presented with a random card number and has to guess if the following card number drawn will be higher or lower.
         console.log('The card drawn has ' + firstRandomCard + ' on it');
 
         //adding space for usability
         console.log(' ');
 
+    do {
+    
+        //same conventions apply to the second card
+        let randomNumber2 = Math.floor(Math.random() * cards.length + 0);
+        let nextRandomCard = cards[randomNumber2];
+
+        //checks to see if the second card is the same as the first
+        while (randomNumber2 == randomNumber1) {
+          // if it's the same it will pick a new card
+           randomNumber2 = Math.floor(Math.random() * cards.length + 0);
+           nextRandomCard = cards[randomNumber2];
+        }
+
+        // //main game = each player is presented with a random card number and has to guess if the following card number drawn will be higher or lower.
+        // console.log('The card drawn has ' + firstRandomCard + ' on it');
+
+        // //adding space for usability
+        // console.log(' ');
+
 
         //asking player 1 if they think the next card will be higher or lower
-        var guessPlayer1 = prompt(player1 + ', do you think the next card will have a higher or lower number value?');
+        let guessPlayer1 = prompt(player1 + ', do you think the next card will have a higher or lower number value?');
 
         //makes text the user inputted lowercase
         guessPlayer1 = guessPlayer1.toLowerCase();
@@ -179,14 +185,14 @@ let pointPlayer2 = 0;
         } else if (guessPlayer2 == 'higher' && randomNumber1 > randomNumber2 || guessPlayer2 == 'lower' && randomNumber1 < randomNumber2) {
             console.log(player2 + ' you are incorrect!');
         }
-
+        randomNumber1 = randomNumber2
         //One round is complete
         round++;
         console.log(' ');
 
         // the players play for the amount of rounds they set to the variable "definedRound"
     } while (round < definedRound); {
-
+       
     }
     //the points of each player are displayed
     console.log(player1 + ', you have ' + pointPlayer1 + ' points.');
@@ -195,7 +201,7 @@ let pointPlayer2 = 0;
     //Whoever has the most points wins
     if (pointPlayer1 > pointPlayer2) {
         console.log('Congradulations ' + player1 + ', you win the game!');
-    } else if (pointPlayer1 < pointPlayer1) {
+    } else if (pointPlayer1 < pointPlayer2) {
         console.log('Congradulations ' + player2 + ', you win the game!');
     } else if (pointPlayer1 == pointPlayer2) {
         console.log('its a tie!');
