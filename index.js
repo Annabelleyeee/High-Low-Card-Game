@@ -9,7 +9,7 @@ console.log('A card will be drawn from a deck and it is your job to guess if the
 //adding white space for usability
 console.log(' ');
 
-console.log('If you guess correctly then you will recieve a point! At the end of the game, the person with the most points wins.');
+console.log('If you guess correctly then you will receive a point! At the end of the game, the person with the most points wins.');
 
 //adding white space for usability
 console.log(' ');
@@ -27,7 +27,7 @@ let pickedRandomName1 = randomName[randomName1];
 let definedName1 = prompt('You are player 1, What is your name?');
 
 
-//depending on if the user enters their name/s or not, a differnet welcome message will appear.
+//depending on if the user enters their name/s or not, a different welcome message will appear.
 if (definedName1 == '') {
     console.log('Error: Empty input, you will be assigned a random name!');
     console.log('Welcome to the game, ' + pickedRandomName1);
@@ -56,7 +56,7 @@ if (definedName2 == '') {
 //adding white space for usability
 console.log(' ');
 
-//the value of players will either be their inputed name or a random name
+//the value of players will either be their chosen name or a random name
 let player1 = (definedName1 || pickedRandomName1);
 let player2 = (definedName2 || pickedRandomName2);
 
@@ -74,7 +74,7 @@ let pointPlayer2 = 0;
     //the player can choose the number of rounds they would like to play for
     let definedRound = prompt('How many rounds would you like to play for?');
 
-    // setting boundries and rules for valid and invalid inputs.
+    // setting boundaries and rules for valid and invalid inputs.
     while ((isNaN(definedRound)) || (definedRound < 1) || (definedRound == null) || (definedRound == ' ') || (definedRound % 1 != 0) || (definedRound > 52)) {
         console.log('Error: Not a valid number - Please enter a valid, whole numeral between 1 and 52 (there are only 52 cards in a Standard Deck');
         console.log(' ');
@@ -182,7 +182,7 @@ let pointPlayer2 = 0;
         }
 
         //at the end of the round, the value of the  becomes the second number so that when the next round plays, the "nextCardDrawn" is treated as the "firstCardDrawn" and a new card will become the "nextCardDrawn"
-        randomNumber1 = randomNumber2
+        randomNumber1 = randomNumber2;
 
         //One round is complete - will loop back to "do"
         round++;
@@ -198,9 +198,9 @@ let pointPlayer2 = 0;
 
     //Whoever has the most points wins
     if (pointPlayer1 > pointPlayer2) {
-        console.log('Congradulations ' + player1 + ', you win the game!');
+        console.log('Congratulations ' + player1 + ', you win the game!');
     } else if (pointPlayer1 < pointPlayer2) {
-        console.log('Congradulations ' + player2 + ', you win the game!');
+        console.log('Congratulations ' + player2 + ', you win the game!');
     } else if (pointPlayer1 == pointPlayer2) {
         console.log('its a tie!');
     }
