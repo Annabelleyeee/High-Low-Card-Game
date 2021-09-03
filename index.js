@@ -102,46 +102,44 @@ let pointPlayer2 = 0;
     let cards = ['an Ace (1)', 'a 2', 'a 3', 'a 4', 'a 5', 'a 6', 'a 7', 'an 8', 'a 9', 'a 10', 'a Jack (11)', 'a Queen (12)', 'a King (13)'];
 
 
-    //math.floor gives each item in the "cards" list, a numerical value. The "Math.random" will select a random number from that list of numbers and  "randomCard1" will hold that selected number as its value.
-    let randomNumber1 = Math.floor(Math.random() * cards.length + 0);
-
-    // "firstRandomCard" will have the value of whatever card from the "cards" list that corresponds to the random number set by "randomNumber1" - for example, if the random number generated is 1 then the first random card will be ace.
-    let firstRandomCard = cards[randomNumber1];
-
-    //same conventions apply to the second card
-    let randomNumber2 = Math.floor(Math.random() * cards.length + 0);
-    let nextRandomCard = cards[randomNumber2];
-
-
-    //main game = each player is presented with a random card number and has to guess if the following card number drawn will be higher or lower.
-    console.log('The card drawn has ' + firstRandomCard + ' on it');
-    //adding space for usability
-    console.log(' ');
-
     do {
 
-        randomNumber1 = Math.floor(Math.random() * cards.length + 0);
+        //math.floor gives each item in the "cards" list, a numerical value. The "Math.random" will select a random number from that list of numbers and  "randomCard1" will hold that selected number as its value.
+        var randomNumber1 = Math.floor(Math.random() * cards.length + 0);
 
-        cards.splice(randomName1, 1);
-        firstRandomCard = cards[randomNumber1];
+        // "firstRandomCard" will have the value of whatever card from the "cards" list that corresponds to the random number set by "randomNumber1" - for example, if the random number generated is 0 then the first random card will be ace.
+        var firstRandomCard = cards[randomNumber1];
       
+        //same conventions apply to the second card
+        var randomNumber2 = Math.floor(Math.random() * cards.length + 0);
+        var nextRandomCard = cards[randomNumber2];
 
+        //checks to see if the second card is the same as the first
+        while (randomNumber2 == randomNumber1) {
+          // if it's the same it will pick a new card
+          var randomNumber2 = Math.floor(Math.random() * cards.length + 0);
+          var nextRandomCard = cards[randomNumber2];
+        }
 
-        randomNumber2 = Math.floor(Math.random() * cards.length + 0);
+        //main game = each player is presented with a random card number and has to guess if the following card number drawn will be higher or lower.
+        console.log('The card drawn has ' + firstRandomCard + ' on it');
 
-        cards.splice(randomNumber2, 1);
-        nextRandomCard = cards[randomNumber2];
+        //adding space for usability
+        console.log(' ');
 
 
         //asking player 1 if they think the next card will be higher or lower
         var guessPlayer1 = prompt(player1 + ', do you think the next card will have a higher or lower number value?');
+
+        //makes text the user inputted lowercase
+        guessPlayer1 = guessPlayer1.toLowerCase();
 
         //adding space for usability
         console.log(' ');
 
         //setting boundaries and rules to test if valid or invalid response - an error message will appear if the answer isnt valid and the prompt will repeat.
 
-        while (guessPlayer1 != 'higher' && guessPlayer1 != 'lower' && guessPlayer1 != 'Higher' && guessPlayer1 != 'Lower' && guessPlayer1 != 'HIGHER' && guessPlayer1 != 'LOWER') {
+        while (guessPlayer1 != 'higher' && guessPlayer1 != 'lower') {
             //adding space for usability
             console.log(' ');
             console.log('Error: Invalid response, please type \'higher\' or \'lower\'.');
@@ -156,8 +154,9 @@ let pointPlayer2 = 0;
 
         //same for player 2
         let guessPlayer2 = prompt(player2 + ', do you think the next card will have a higher or lower number value?');
+        guessPlayer2 = guessPlayer2.toLowerCase();
 
-        while (guessPlayer2 != 'higher' && guessPlayer2 != 'lower' && guessPlayer2 != 'Higher' && guessPlayer2 != 'Lower' && guessPlayer2 != 'HIGHER' && guessPlayer2 != 'LOWER') {
+        while (guessPlayer2 != 'higher' && guessPlayer2 != 'lower') {
             console.log(' ');
             console.log('Error: Invalid response, please type \'higher\' or \'lower\'.');
 
@@ -172,25 +171,26 @@ let pointPlayer2 = 0;
 
         if (randomNumber1 < randomNumber2) {
             console.log('it has a HIGHER number value');
+            console.log('Number1 ' + randomNumber1 + ' Number2 ' + randomNumber2);
         } else if (randomNumber1 > randomNumber2) {
             console.log('it has a LOWER number value');
+            console.log('Number1 ' + randomNumber1 + ' Number2 ' + randomNumber2);
         }
 
-
         // determining who gets the points based on their response from earlier - if they were correct then they get a point, if they don't then they won't
-        if (guessPlayer1 == 'higher' && randomNumber1 < randomNumber2 || guessPlayer1 == 'Higher' && randomNumber1 < randomNumber2 || guessPlayer1 == 'HIGHER' && randomNumber1 < randomNumber2 || guessPlayer1 == 'lower' && randomNumber1 > randomNumber2 || guessPlayer1 == 'Lower' && randomNumber1 > randomNumber2 || guessPlayer1 == 'LOWER' && randomNumber1 > randomNumber2) {
+        if (guessPlayer1 == 'higher' && randomNumber1 < randomNumber2 || guessPlayer1 == 'lower' && randomNumber1 > randomNumber2) {
             console.log(player1 + ' you are correct!');
             pointPlayer1++;
 
-        } else if (guessPlayer1 == 'higher' && randomNumber1 > randomNumber2 || guessPlayer1 == 'Higher' && randomNumber1 > randomNumber2 || guessPlayer1 == 'HIGHER' && randomNumber1 > randomNumber2 || guessPlayer1 == 'lower' && randomNumber1 < randomNumber2 || guessPlayer1 == 'Lower' && randomNumber1 < randomNumber2 || guessPlayer1 == 'LOWER' && randomNumber1 < randomNumber2) {
+        } else if (guessPlayer1 == 'higher' && randomNumber1 > randomNumber2 || guessPlayer1 == 'lower' && randomNumber1 < randomNumber2) {
             console.log(player1 + ' you are incorrect!');
         }
 
-        if (guessPlayer2 == 'higher' && randomNumber1 < randomNumber2 || guessPlayer2 == 'Higher' && randomNumber1 < randomNumber2 || guessPlayer2 == 'HIGHER' && randomNumber1 < randomNumber2 || guessPlayer2 == 'lower' && randomNumber1 > randomNumber2 || guessPlayer2 == 'Lower' && randomNumber1 > randomNumber2 || guessPlayer2 == 'LOWER' && randomNumber1 > randomNumber2) {
+        if (guessPlayer2 == 'higher' && randomNumber1 < randomNumber2 || guessPlayer2 == 'lower' && randomNumber1 > randomNumber2) {
             console.log(player2 + ' you are correct!');
             pointPlayer2++;
 
-        } else if (guessPlayer2 == 'higher' && randomNumber1 > randomNumber2 || guessPlayer2 == 'Higher' && randomNumber1 > randomNumber2 || guessPlayer2 == 'HIGHER' && randomNumber1 > randomNumber2 || guessPlayer2 == 'lower' && randomNumber1 < randomNumber2 || guessPlayer2 == 'Lower' && randomNumber1 < randomNumber2 || guessPlayer2 == 'LOWER' && randomNumber1 < randomNumber2) {
+        } else if (guessPlayer2 == 'higher' && randomNumber1 > randomNumber2 || guessPlayer2 == 'lower' && randomNumber1 < randomNumber2) {
             console.log(player2 + ' you are incorrect!');
         }
 
