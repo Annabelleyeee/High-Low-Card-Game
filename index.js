@@ -209,20 +209,23 @@ let pointPlayer2 = 0;
 
     // The user is asked if they want to play again or not.
     let again = prompt('Do you want to play again?');
+    
+    //makes text the user inputted lowercase
+        again = again.toLowerCase();
 
-    while (again != 'yes' && again != 'Yes' && again != 'no' && again != 'No') {
+    while (again != 'yes' && again != 'no') {
         console.log('Error: Invalid response, please type \'yes\' or \'no\'.');
         console.log(' ');
         again = prompt('Do you want to play again?');
     }
-    if (again == 'yes' || again == 'Yes') {
+    if (again == 'yes') {
         console.log(' ');
         console.log('Ok, let\'s reset!');
         console.log(' ');
         console.log(' ');
 
         play();
-    } else if (again == 'no' || again == 'No') {
+    } else if (again == 'no') {
         console.log(' ');
         console.log(' ');
         console.log('Game Over, Thanks for playing!');
