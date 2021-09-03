@@ -117,11 +117,6 @@ let pointPlayer2 = 0;
            nextRandomCard = cards[randomNumber2];
         }
 
-        // //main game = each player is presented with a random card number and has to guess if the following card number drawn will be higher or lower.
-        // console.log('The card drawn has ' + firstRandomCard + ' on it');
-
-        // //adding space for usability
-        // console.log(' ');
 
 
         //asking player 1 if they think the next card will be higher or lower
@@ -136,7 +131,7 @@ let pointPlayer2 = 0;
             console.log('Error: Invalid response, please type \'higher\' or \'lower\'.');
             console.log(' ');
             guessPlayer1 = prompt(player1 + ', do you think the next card will have a higher or lower number value?');
-           
+             guessPlayer1 = guessPlayer1.toLowerCase();
         }
         //adding space for usability
         console.log(' ');
