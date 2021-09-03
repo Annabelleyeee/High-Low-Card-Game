@@ -185,8 +185,11 @@ let pointPlayer2 = 0;
         } else if (guessPlayer2 == 'higher' && randomNumber1 > randomNumber2 || guessPlayer2 == 'lower' && randomNumber1 < randomNumber2) {
             console.log(player2 + ' you are incorrect!');
         }
+
+        //at the end of the round, the value of the  becomes the second number so that when the next round plays, the "nextCardDrawn" is treated as the "firstCardDrawn" and a new card will become the "nextCardDrawn"
         randomNumber1 = randomNumber2
-        //One round is complete
+
+        //One round is complete - will loop back to "do"
         round++;
         console.log(' ');
 
