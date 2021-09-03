@@ -13,6 +13,8 @@ console.log('If you guess correctly then you will recieve a point! At the end of
 
 //adding space for usability
 console.log(' ');
+console.log(' ');
+console.log(' ');
 
 //list of preselected names (in case the user does not enter a name)
 let randomName = ['Zoe', 'Anna', 'Xanthe', 'Abi', 'Ella', 'Buttons', 'Superman', 'FruitPunch', 'Macbeth', 'Johannes', 'R2D2', 'Kath', 'Kim', 'Pamela'];
@@ -24,8 +26,6 @@ let pickedRandomName1 = randomName[randomName1];
 //Asking for the user's name (player 1)
 let definedName1 = prompt('You are player 1, What is your name?');
 
-//adding space for usability
-console.log(' ');
 
 //depending on if the user enters their name/s or not, a differnet welcome message will appear.
 if (definedName1 == '') {
@@ -45,8 +45,6 @@ let pickedRandomName2 = randomName[randomName2];
 
 let definedName2 = prompt('You are player 2, What is your name?');
 
-//adding space for usability
-console.log(' ');
 
 if (definedName2 == '') {
     console.log('Error: Empty input, you will be assigned a random name!');
@@ -55,19 +53,12 @@ if (definedName2 == '') {
 } else {
     console.log('Welcome to the game ' + definedName2);
 }
-
 //adding space for usability
 console.log(' ');
 
 //the value of players will either be their inputed name or a random name
 let player1 = (definedName1 || pickedRandomName1);
 let player2 = (definedName2 || pickedRandomName2);
-
-console.log('Okay ' + player1 + ' and ' + player2 + ', get ready to play!');
-console.log(' ');
-console.log(' ');
-
-
 
 
 play();
@@ -83,13 +74,8 @@ let pointPlayer2 = 0;
     //the player can choose the number of rounds they would like to play for
     let definedRound = prompt('How many rounds would you like to play for?');
 
-    //adding space for usability
-    console.log(' ');
-
-
     // setting boundries and rules for valid and invalid inputs.
     while ((isNaN(definedRound)) || (definedRound < 1) || (definedRound == null) || (definedRound == ' ') || (definedRound % 1 != 0) || (definedRound > 52)) {
-        console.log(' ');
         console.log('Error: Not a valid number - Please enter a valid, whole numeral between 1 and 52 (there are only 52 cards in a Standard Deck');
         console.log(' ');
         definedRound = prompt('How many rounds would you like to play for?');
@@ -97,6 +83,10 @@ let pointPlayer2 = 0;
 
     //adding space for usability
     console.log(' ');
+    console.log(' ');
+    console.log(' ');
+
+    console.log('Okay ' + player1 + ' and ' + player2 + ', get ready to play!');
 
     //setting a list of possible cards from a deck to be selected
     let cards = ['an Ace (1)', 'a 2', 'a 3', 'a 4', 'a 5', 'a 6', 'a 7', 'an 8', 'a 9', 'a 10', 'a Jack (11)', 'a Queen (12)', 'a King (13)'];
@@ -134,19 +124,13 @@ let pointPlayer2 = 0;
         //makes text the user inputted lowercase
         guessPlayer1 = guessPlayer1.toLowerCase();
 
-        //adding space for usability
-        console.log(' ');
-
-        //setting boundaries and rules to test if valid or invalid response - an error message will appear if the answer isnt valid and the prompt will repeat.
+        //setting boundaries and rules to test if valid or invalid response - an error message will appear if the answer isn't valid and the prompt will repeat.
 
         while (guessPlayer1 != 'higher' && guessPlayer1 != 'lower') {
-            //adding space for usability
-            console.log(' ');
             console.log('Error: Invalid response, please type \'higher\' or \'lower\'.');
-
-            guessPlayer1 = prompt(player1 + ', do you think the next card will have a higher or lower number value?');
-            //adding space for usability
             console.log(' ');
+            guessPlayer1 = prompt(player1 + ', do you think the next card will have a higher or lower number value?');
+           
         }
         //adding space for usability
         console.log(' ');
@@ -157,13 +141,15 @@ let pointPlayer2 = 0;
         guessPlayer2 = guessPlayer2.toLowerCase();
 
         while (guessPlayer2 != 'higher' && guessPlayer2 != 'lower') {
-            console.log(' ');
+            
             console.log('Error: Invalid response, please type \'higher\' or \'lower\'.');
-
+            console.log(' ');
             guessPlayer2 = prompt(player2 + ', do you think the next card will have a higher or lower number value?');
         }
         //adding space for usability
         console.log(' ');
+        console.log(' ');
+    
 
 
         //The program will say the value of the next card drawn
@@ -171,10 +157,10 @@ let pointPlayer2 = 0;
 
         if (randomNumber1 < randomNumber2) {
             console.log('it has a HIGHER number value');
-            console.log('Number1 ' + randomNumber1 + ' Number2 ' + randomNumber2);
+            // console.log('Number1 ' + randomNumber1 + ' Number2 ' + randomNumber2);
         } else if (randomNumber1 > randomNumber2) {
             console.log('it has a LOWER number value');
-            console.log('Number1 ' + randomNumber1 + ' Number2 ' + randomNumber2);
+            // console.log('Number1 ' + randomNumber1 + ' Number2 ' + randomNumber2);
         }
 
         // determining who gets the points based on their response from earlier - if they were correct then they get a point, if they don't then they won't
@@ -221,7 +207,6 @@ let pointPlayer2 = 0;
     let again = prompt('Do you want to play again?');
 
     while (again != 'yes' && again != 'Yes' && again != 'no' && again != 'No') {
-        console.log(' ');
         console.log('Error: Invalid response, please type \'yes\' or \'no\'.');
         console.log(' ');
         again = prompt('Do you want to play again?');
@@ -230,9 +215,11 @@ let pointPlayer2 = 0;
         console.log(' ');
         console.log('Ok, let\'s reset!');
         console.log(' ');
+        console.log(' ');
 
         play();
     } else if (again == 'no' || again == 'No') {
+        console.log(' ');
         console.log(' ');
         console.log('Game Over, Thanks for playing!');
     }
